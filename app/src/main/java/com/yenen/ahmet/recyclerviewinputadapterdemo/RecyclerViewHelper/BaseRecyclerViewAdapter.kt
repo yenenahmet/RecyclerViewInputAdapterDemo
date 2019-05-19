@@ -39,10 +39,10 @@ protected constructor(private var items: MutableList<T>) : RecyclerView.Adapter<
     }
 
     protected fun getItemPosition(item: T): Int {
-        if (!items!!.isEmpty()) {
+        if (!items.isEmpty()) {
             var i = 0
             var pos = -1
-            for (value in items!!) {
+            for (value in items) {
                 if (item == value) {
                     pos = i
                     break

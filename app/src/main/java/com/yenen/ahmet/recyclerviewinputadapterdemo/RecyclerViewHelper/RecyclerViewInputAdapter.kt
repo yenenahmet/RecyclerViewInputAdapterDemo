@@ -66,7 +66,9 @@ protected constructor(items: MutableList<T>, protected val activity: Activity,pr
             focusPosition = v.tag as Int
         } else {
             focusView = null
-            runOnChange(v.tag as Int, v)
+            activity.runOnUiThread {
+                runOnChange(v.tag as Int, v)
+            }
         }
     }
     // Text && Focus listener //
@@ -92,7 +94,7 @@ protected constructor(items: MutableList<T>, protected val activity: Activity,pr
         clearTimer()
         val item = getItem(position)
         if (position>-1 && item != null && view != null && !isScroll) {
-            onChange(position, view, item)
+                onChange(position, view, item)
         }
     }
 
